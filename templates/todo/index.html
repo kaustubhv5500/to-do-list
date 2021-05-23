@@ -22,10 +22,17 @@
         <td>{{ task.description }}</td>
         <td> {{ task.date }}</td>
         <td> {{ task.deadline }}</td>
+        <td>
+          <form action = "deleteURL" method="POST">
+            {% csrf_token %} 
+          <button type="submit" class = "btn btn-danger">Delete</button>
+        </form>
+        </td>
       </tr>      
         {% endfor %}
         {% else %}
-    <strong>No Tasks Added!</strong>
+        <br/>
+    <h1><strong>No Tasks Added!</strong></h1>
     {% endif %}
     </tbody>
     </table>

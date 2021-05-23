@@ -10,14 +10,17 @@
     <br/>
     {% for field in form.visible_fields %}
         {{ field.errors }}
-        {{ field.name }}
+        <strong>{{ field.name }}</strong>
         {{ field }}
         <br/>
+        <br/>
+
     {% endfor %}
 
     <button class="btn btn-primary" type="submit" name="submit">Create Task</button>
-</form>
 </div>	
+</form>
+
 
 
 {% endblock %}

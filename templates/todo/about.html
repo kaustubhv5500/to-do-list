@@ -1,0 +1,23 @@
+{% extends 'todo/base_bootstrap_index.html' %}
+{% load static %}
+
+{% block title %}
+About v1.0
+{% endblock %}
+
+{% block body_block %}
+</h3>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>About</h1>
+      <p>Coded by Kaustubh V in May 2021.</p>
+      <p>This website was created to help users create a To-do List to manage their daily activities. The website uses Django and Sqlite as its backend and Bootstrap as its front end.
+      </p>
+      <p>Users can: </p>
+      <li>Add a task with description and deadline</li>
+      <li>Delete a task after completion</li>
+      <p></p>
+      <a href="mailto:kaustubhv@hotmail.com">Drop an Email!</a>
+    </div>
+  </div>
+{% endblock %}

@@ -16,8 +16,6 @@ def add_task(request):
         print(form.is_valid())
         if form.is_valid():
             task = form.save(commit=True)
-            data= form.cleaned_data.GET['title']
-            print(data)
             return index(request)  # direct user back to index page
             
         else:

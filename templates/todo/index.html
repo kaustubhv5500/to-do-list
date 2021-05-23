@@ -1,0 +1,33 @@
+{% extends "todo/base_bootstrap_index.html" %}
+{% load static %}
+<!DOCTYPE html>
+{% block title %}To Do List{% endblock %}
+{% block body_block %}
+{% if tasks %}
+
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Date Added</th>
+        <th>Deadline</th>
+      </tr>
+    </thead>
+    {% for task in tasks %}
+    <tbody>
+      <tr>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td> {{ task.date }}</td>
+        <td> {{ task.deadline }}</td>
+      </tr>      
+        {% endfor %}
+        {% else %}
+    <strong>No Tasks Added!</strong>
+    {% endif %}
+    </tbody>
+    </table>
+    </div>
+    {% endblock %}

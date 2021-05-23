@@ -5,7 +5,8 @@ from todo.forms import TaskForm
 # Create your views here.
 def index(request):
     task_list = Task.objects.order_by("-date")
-    context_dict = {}
+    context_dict = {'tasks' : task_list}
+    return render(request,'todo/index.html', context_dict)
 
 def add_task(request):
     form = TaskForm()

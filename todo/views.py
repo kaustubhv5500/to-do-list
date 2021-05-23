@@ -13,10 +13,13 @@ def add_task(request):
 
     if request.method == "POST":
         form = TaskForm(request.POST)
-
+        print(form.is_valid())
         if form.is_valid():
             task = form.save(commit=True)
-            return index(request)  #direct user back to index page
+            data= form.cleaned_data.GET['title']
+            print(data)
+            return index(request)  # direct user back to index page
+            
         else:
             print(form.errors)
     

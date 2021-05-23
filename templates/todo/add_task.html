@@ -1,11 +1,23 @@
 {% extends "todo/base_bootstrap_index.html" %}
 {% block title %}Add Task{% endblock %}
 {% block body_block %}
-<form id="category_form" method="post" action="{% url 'todo:index' %}"\>
-<h2 class="form-signin-heading"\>Add a Category</a></h2>
-{% csrf_token %}
-{{ form|as_bootstrap }}
-<br/>
-<button class="btn btn-primary" type="submit" name="submit"\>Add Task</button>
+<form role="form" id="task_form" method="post" action="{% url 'todo:index' %}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    <br/>
+    <br/>
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        {{ field.name }}
+        {{ field }}
+        <br/>
+    {% endfor %}
+
+    <button class="btn btn-primary" type="submit" name="submit">Create Task</button>
 </form>
+</div>	
+
+
 {% endblock %}

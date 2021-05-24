@@ -3,6 +3,7 @@
 1. Show case your code in github, working app by Thursday next week
 2. Write proper code with acceptable function and variable names, dont make it look like chicken scratch with cryptic names!
 3. Use bootstrap5 for your webpage views
-4. In the todo list app I should be able to a) add a task with a description and date b) delete a task c) view all the tasks in order of date d) modify a task's description and date  e) extra points for showing tasks in a calendar
+4. In the todo list app I should be able to a) add a task with a description and date b) delete a task c) view all the tasks in order of date d) modify a task's description and date  
+e) extra points for showing tasks in a calendar
 5. build the todo list app using django, use a database (sqlite), use bootstrap5 in the html pages, dockerize it, and extra points for deploying it to aws or digitalocean
 6. store all the code in github, i want to see you have having done checkins at regular intervals and not a one time push into github, use it from the start and keep pushing code into it as you reach milestones

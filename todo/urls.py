@@ -10,5 +10,8 @@ urlpatterns = [
     url(r"^add_task/$",views.add_task,name = "add_task"),
     url(r'^deleteURL/(?P<task_id>[0-9]+)/$', views.remove_task, name='deleteURL'),
     path('deleteURL',views.remove_task),
+    path('currentMonth',views.return_current_month),
+    url(r'^calendarView/currentMonth$', views.return_current_month, name='currentMonth'),
+    url(r'calendarView/$',views.calendar_view, name="calendar_view"),
 ]
     

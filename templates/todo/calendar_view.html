@@ -1,0 +1,15 @@
+{% extends "todo/base_bootstrap_index.html" %}
+{% load static %}
+<!DOCTYPE html>
+{% block title %}To Do List{% endblock %}
+{% block body_block %}
+{% if tasks %}
+<br/>
+{{ cal|safe }}
+<!-- <form action = "currentMonth" method="POST">
+  
+<button type="submit" class = "btn btn-primary" name="PreviousMonth" value="{{ 1 }}">Previous Month</button>
+<button type="submit" class = "btn btn-primary" name="NextMonth" value="{{ 1 }}">Next Month</button>
+</form> -->
+{% endif %}
+{% endblock %}

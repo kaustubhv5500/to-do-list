@@ -3,7 +3,7 @@ from django.utils import timezone
  
  # Class to hold all the details of the task
 class Task(models.Model):
-    title = models.CharField(max_length = 75)
+    title = models.CharField(max_length = 75, unique=True)
     description = models.TextField(null=True)
     date = models.DateTimeField(default = timezone.now)
     deadline = models.DateTimeField(default= timezone.now)

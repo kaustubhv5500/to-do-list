@@ -23,9 +23,9 @@
         <td> {{ task.date }}</td>
         <td> {{ task.deadline }}</td>
         <td>
-          <form action = "deleteURL" method="POST">
+          <form action = "deleteURL" method="GET">
             {% csrf_token %} 
-          <button type="submit" class = "btn btn-danger">Delete</button>
+          <button type="submit" class = "btn btn-danger" name="DeleteButton" value="{{ task.title }}">Delete</button>
         </form>
         </td>
       </tr>      

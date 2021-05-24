@@ -23,6 +23,6 @@ from todo import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('todo.urls')),
-    path('deleteURL',views.remove_task),
+    # path('deleteURL',views.remove_task),
 
 ]

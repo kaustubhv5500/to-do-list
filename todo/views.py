@@ -30,9 +30,12 @@ def add_task(request):
     context_dict = {'form' : form}
     return render(request,'todo/add_task.html',context_dict)
 
-def remove_task(request,task_id=None):
-    print(task_id)
-    item = Task.objects.get(id = task_id)
+def remove_task(request):
+    task_id = request.GET.get('DeleteButton')
+
+    print('To be Deleted : ',task_id)
+    item = Task.objects.get(title = task_id)
+    print(item)
     item.delete()
     messages.info(request, "Item removed !!!")
     return index(request)

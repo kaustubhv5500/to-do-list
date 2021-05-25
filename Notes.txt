@@ -40,8 +40,8 @@
 
 -> app_name = 'appname' in urls.py
 
---> {% user_form as_p %} : : as_p template : : This wraps each element in the form in a paragraph (denoted by the <p> HTML tag). This ensures that each
-element appears on a new line.
+--> {% user_form as_p %} : : as_p template : : This wraps each element in the form in a paragraph (denoted by the <p> HTML tag). 
+This ensures that each element appears on a new line.
 
 --> set_test_cookie(), test_cookie_worked() and delete_test_cookie(). : cookie testing functions in django 
 
@@ -52,3 +52,15 @@ element appears on a new line.
 
 -> git remote add master https://github.com/kaustubhv5500/courseagg.git
 -> git push -u origin master
+----------------------------------------------------------------------------------------------------------------------------------------------------
+* NOTES FOR DOCKER *
+
+-> Specify base image or dependency : i.e. python 3
+-> Create a working directory to store all the files
+-> Copy all the files to that foler
+-> Specify dependencies in the requirements.txt file
+-> Copy file to docker container
+-> Install the dependencies from the file
+-> Run the following commands as superuser :
+-> run 'sudo docker-compose build' : builds the component image and returns an id
+-> run 'sudo docker-compose up'

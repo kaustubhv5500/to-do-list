@@ -1,0 +1,28 @@
+{% extends "todo/base_bootstrap_index.html" %}
+{% block title %}Modify Task{% endblock %}
+{% block body_block %}
+<br/>
+<h3>Modifying Task: {{ modified_task }}</h3>
+<form role="form" id="task_form" method="post" action="{% url 'todo:modify_task' %}">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+    <br/>
+    <br/>
+    {% for field in form.visible_fields %}
+        {{ field.errors }}
+        <strong>{{ field.name }}</strong>
+        {{ field }}
+        <br/>
+        <br/>
+
+    {% endfor %}
+
+    <button class="btn btn-primary" type="submit" name="submit">Modify Task</button>
+</div>	
+</form>
+
+
+
+{% endblock %}

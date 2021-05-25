@@ -21,7 +21,6 @@ def add_task(request):
 
     if request.method == "POST":
         form = TaskForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
             task = form.save(commit=True)
             return index(request) # direct user back to index page
@@ -41,6 +40,33 @@ def remove_task(request):
     item.delete()
     messages.info(request, "Item removed !!!")
     return index(request)
+
+def modify_task(request):
+    try:
+        task_id = request.GET.get('ModifyButton')
+        item = Task.objects.get(title = task_id)
+        modified_task = item.title
+        item.delete()
+    except Task.DoesNotExist:
+        modified_task = ''
+        item = None
+
+    
+    form = TaskForm()
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+
+    
+
+    context_dict = {'form' : form, 'modified_task' : modified_task}
+    return render(request, 'todo/modify_task.html', context_dict)
+
+
 
 def calendar_view(request):
     task_list = Task.objects.order_by("deadline")

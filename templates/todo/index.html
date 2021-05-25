@@ -27,6 +27,11 @@
             {% csrf_token %} 
           <button type="submit" class = "btn btn-danger" name="DeleteButton" value="{{ task.title }}">Delete</button>
         </form>
+        <br/>
+        <form action = "modifyURL" method="GET">
+          {% csrf_token %} 
+        <button type="submit" class = "btn btn-primary" name="ModifyButton" value="{{ task.title }}">Modify</button>
+      </form>
         </td>
       </tr>      
         {% endfor %}

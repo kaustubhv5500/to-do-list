@@ -64,3 +64,6 @@ This ensures that each element appears on a new line.
 -> Run the following commands as superuser :
 -> run 'sudo docker-compose build' : builds the component image and returns an id
 -> run 'sudo docker-compose up'
+--> List all docker images : 'sudo docker images'
+--> list all containers : 'sudo docker ps -a'
+--> remove image : 'sudo docker image rm [ImageID]'

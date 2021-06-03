@@ -4,4 +4,5 @@ Dependencies :
 - Python v3.8 
 - Django v3.2.1
 
-To run the application, run : 'python3 manage.py runserver'
+To run the application, run : 
+### `python3 manage.py runserver`

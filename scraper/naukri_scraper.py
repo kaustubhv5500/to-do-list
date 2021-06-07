@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 os.system('clear')
 
 # no_of_pages = input("Enter the Number of Pages to be Scraped :")
-no_of_pages = 2
+no_of_pages = 3
 url = "https://www.naukri.com/online-scrapper-jobs?cityTypeGid=9508"
 
 cols = ['Job Title',
@@ -91,8 +91,9 @@ def scrape_page(url):
 
         skills_header = element.find(class_ = "tags has-description")
         skills = []
-        for skill in skills_header:
-            skills.append(skill.text)
+        if skills_header:
+            for skill in skills_header:
+                skills.append(skill.text)
 
         type_header = element.find(class_ = "jobType type fleft br2 mr-8")
     
@@ -124,11 +125,17 @@ def scrape_page(url):
 
 # Loop to iterate through the number of pages to be searched
 for i in range(1, no_of_pages+1):
+    print(url)
     data_list = scrape_page(url)
     temp = pd.DataFrame(data_list, columns=cols)
     data = data.append(temp, ignore_index=True)
-
-    split_url = url.split('?')
-    url = split_url[0] + '-' + str(i+1) + '?' + split_url[1]
+    
+    if i==1:
+        split_url = url.split('?')
+        url = split_url[0] + '-' + str(i+1) + '?' + split_url[1]
+    else:
+        split_url = url.split('-'+ str(i))
+        url = split_url[0] + '-' + str(i+1) + split_url[1]
 
 data.to_csv('naukri_data.csv')
+print('No. of Listings : ', len(data))

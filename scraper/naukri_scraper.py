@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 os.system('clear')
 
 # no_of_pages = input("Enter the Number of Pages to be Scraped :")
-no_of_pages = 3
+no_of_pages = 4
 url = "https://www.naukri.com/online-scrapper-jobs?cityTypeGid=9508"
 
 cols = ['Job Title',
@@ -112,7 +112,7 @@ def scrape_page(url):
             if posting_date == '30+':
                 posting_date = '30+ Days Ago'
             else:
-                posting_date = datetime.today() - timedelta(days= int(posting_date[0]))
+                posting_date = datetime.today() - timedelta(days= int(posting_date))
                 posting_date = posting_date.date()
 
         else:
@@ -129,6 +129,7 @@ for i in range(1, no_of_pages+1):
     data_list = scrape_page(url)
     temp = pd.DataFrame(data_list, columns=cols)
     data = data.append(temp, ignore_index=True)
+    #print(temp)
     
     if i==1:
         split_url = url.split('?')
@@ -139,3 +140,4 @@ for i in range(1, no_of_pages+1):
 
 data.to_csv('naukri_data.csv')
 print('No. of Listings : ', len(data))
+

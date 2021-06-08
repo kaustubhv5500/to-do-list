@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 os.system('clear')
 
 # no_of_pages = input("Enter the Number of Pages to be Scraped :")
-no_of_pages = 4
+no_of_pages = 3
 url = "https://www.naukri.com/online-scrapper-jobs?cityTypeGid=9508"
 
 cols = ['Job Title',
@@ -39,7 +39,10 @@ def scrape_page(url):
     """
 
     #  Request the url from the http server using selenium and parse using beautiful soup
-    driver = webdriver.Firefox()
+    
+    opts = webdriver.FirefoxOptions()
+    opts.add_argument("--headless")
+    driver = webdriver.Firefox(options=opts)
     driver.get(url)
     # page = requests.get(url) 
 
@@ -129,7 +132,7 @@ for i in range(1, no_of_pages+1):
     data_list = scrape_page(url)
     temp = pd.DataFrame(data_list, columns=cols)
     data = data.append(temp, ignore_index=True)
-    #print(temp)
+    # print(temp)
     
     if i==1:
         split_url = url.split('?')
@@ -141,3 +144,5 @@ for i in range(1, no_of_pages+1):
 data.to_csv('naukri_data.csv')
 print('No. of Listings : ', len(data))
 
+# sudo docker run proj:scraper
+# sudo docker build -f Dockerfile -t proj:scraper .
